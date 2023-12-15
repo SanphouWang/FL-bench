@@ -22,8 +22,9 @@ class FedSRServer(FedAvgServer):
     ):
         if args is None:
             args = get_fedsr_argparser().parse_args()
-        if "_" not in args.model or "fedsr" not in args.model:
-            raise ValueError("args.model should be fedsr_model, e.g. fedsr_mobile2")
+        if "mobile" not in args.model and "res" not in args.model:
+            raise NotImplementedError("Only support MobileNet and ResNet now")
+        args.model = "_".join(["fedsr", args.model])
         super().__init__(algo, args, unique_model, default_trainer)
         self.trainer = FedSRClient(
             deepcopy(self.model), self.args, self.logger, self.device

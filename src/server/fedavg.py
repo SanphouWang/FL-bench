@@ -73,11 +73,6 @@ def get_fedavg_argparser() -> ArgumentParser:
             "efficient5",
             "efficient6",
             "efficient7",
-            "fedsr_mobile2",
-            "fedsr_mobile3s",
-            "fedsr_mobile3l",
-            "fedsr_res50",
-            "fedsr_res101",
             "custom",
         ],
     )
